@@ -7,8 +7,8 @@ import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 import '../../../../../core/utils/utils.dart';
 import '../../../../../core/widgets/app_cached_network_image_widget.dart';
 import '../../../../../core/widgets/bottom_shadow_widget.dart';
-import '../../../../../core/widgets/container_with_label/see_all_blue_button.dart';
-import '../../../../../core/widgets/container_with_label/yellow_divider.dart';
+import '../../../../../core/widgets/labeled_horizontal_list/see_all_blue_button.dart';
+import '../../../../../core/widgets/labeled_horizontal_list/yellow_divider.dart';
 import 'movie_thumbnail_widget.dart';
 
 class MovieDetailsVideosThumbnails extends StatelessWidget {

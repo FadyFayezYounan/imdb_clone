@@ -1,31 +1,34 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:movies_app/core/widgets/container_with_label/yellow_divider.dart';
+import 'package:movies_app/core/widgets/labeled_horizontal_list/yellow_divider.dart';
 
 import '../../utils/utils.dart';
 import 'see_all_blue_button.dart';
 
-typedef ContainerItemBuilderCallBack = Widget Function(
-    BuildContext context, int index);
+typedef LabeledContainerItemBuilderCallBack = Widget Function(
+  BuildContext context,
+  int index,
+);
 
-class ContainerWithLabel<T> extends StatelessWidget {
+class LabeledHorizontalList<T> extends StatelessWidget {
   /// this widget is used to generated a horizontal list of type [T].
-  const ContainerWithLabel({
+  const LabeledHorizontalList({
     super.key,
     required this.labelText,
     this.labelSubtext,
     required this.seeAllOnPressed,
     required this.generatedList,
     required this.itemBuilder,
-    this.generatedListHeight = 0.42, // from screen height.
+    this.generatedListHeight = 0.45, // from screen height.
   });
   final String labelText;
   final String? labelSubtext;
   final VoidCallback seeAllOnPressed;
 
   final List<T> generatedList;
-  final ContainerItemBuilderCallBack itemBuilder;
+  final LabeledContainerItemBuilderCallBack itemBuilder;
   final double generatedListHeight;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -74,6 +77,7 @@ class ContainerWithLabel<T> extends StatelessWidget {
             height: context.isPortrait
                 ? generatedListHeight.sh
                 : (generatedListHeight * 2).sh,
+            //height: generatedListHeight.h,
             child: ListView.builder(
               itemCount: generatedList.length,
               scrollDirection: Axis.horizontal,

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../../../config/routes/app_navigator.dart';
 import '../../../../config/routes/app_routes.dart';
-import '../../../../core/widgets/container_with_label/container_with_label.dart';
+import '../../../../core/widgets/labeled_horizontal_list/labeled_horizontal_list.dart';
 import '../../../../core/widgets/movie_widget/movie_widget.dart';
 import '../../domain/entities/movie_entity.dart';
 import '../../domain/entities/paginated_screen_params.dart';
@@ -28,7 +28,7 @@ class HomeMoviesList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ContainerWithLabel<MovieEntity>(
+    return LabeledHorizontalList<MovieEntity>(
       labelText: listTitle,
       seeAllOnPressed: () {
         AppNavigator.navigateNamedTo(
@@ -40,7 +40,7 @@ class HomeMoviesList extends StatelessWidget {
           ),
         );
       },
-      generatedListHeight: 0.52,
+      generatedListHeight: 0.56,
       generatedList: listMovies,
       itemBuilder: (context, index) => MovieWidget(
         movieEntity: listMovies[index],

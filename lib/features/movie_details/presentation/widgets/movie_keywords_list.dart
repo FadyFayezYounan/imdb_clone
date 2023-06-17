@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:movies_app/features/movie_details/domain/entities/movie_details_entity/genre_entity.dart';
 
 import '../../../../core/utils/app_text_style.dart';
-import '../../../../core/widgets/container_with_label/container_with_label.dart';
+import '../../../../core/widgets/labeled_horizontal_list/labeled_horizontal_list.dart';
 
 class MovieKeywordsList extends StatelessWidget {
   const MovieKeywordsList({
@@ -21,7 +21,7 @@ class MovieKeywordsList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ContainerWithLabel<GenreEntity>(
+    return LabeledHorizontalList<GenreEntity>(
       labelText: listTitle,
       seeAllOnPressed: () {},
       generatedList: keywordsList,

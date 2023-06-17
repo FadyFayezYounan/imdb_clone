@@ -3,7 +3,7 @@ import 'package:movies_app/config/routes/routes.dart';
 import 'package:movies_app/features/home/domain/entities/movie_entity.dart';
 import 'package:movies_app/features/movie_details/domain/entities/movie_images_entity/backdrop_entity.dart';
 
-import '../../../../../core/widgets/container_with_label/container_with_label.dart';
+import '../../../../../core/widgets/labeled_horizontal_list/labeled_horizontal_list.dart';
 import '../../screens/movie_gallery_screen.dart';
 import 'movie_photo_item.dart';
 
@@ -17,7 +17,7 @@ class MoviePhotosList extends StatelessWidget {
   final MovieEntity movieEntity;
   @override
   Widget build(BuildContext context) {
-    return ContainerWithLabel<BackdropEntity>(
+    return LabeledHorizontalList<BackdropEntity>(
       labelText: 'Photos',
       labelSubtext: moviePhotos.length.toString(),
       seeAllOnPressed: () {},

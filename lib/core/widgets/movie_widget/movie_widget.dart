@@ -70,27 +70,19 @@ class MovieWidget extends StatelessWidget {
                     movieEntity.posterPath != null
                         ? MovieImage(
                             width: maxWidth,
-                            height: maxHeight * 0.5,
+                            height: maxHeight * 0.56,
                             movieImage: movieEntity.posterPath!,
                           )
-                        : Container(
-                            width: maxWidth,
-                            height: maxHeight * 0.5,
-                            alignment: Alignment.center,
-                            decoration: const BoxDecoration(
-                                color: AppColors.movieCardColor,
-                                borderRadius: BorderRadius.horizontal(
-                                  left: Radius.circular(10),
-                                  right: Radius.circular(10),
-                                )),
-                            child: const Text(
-                              'no image for this movie',
-                              textAlign: TextAlign.center,
-                            ),
+                        : PlaceHolderImage(
+                            maxWidth: maxWidth,
+                            maxHeight: maxHeight,
                           ),
                     MovieStarsNumberWidget(
-                        starsNumber: movieEntity.voteAverage),
-                    MovieTitleWidget(title: movieEntity.title),
+                      starsNumber: movieEntity.voteAverage,
+                    ),
+                    MovieTitleWidget(
+                      title: movieEntity.title,
+                    ),
                     const Spacer(),
                     if (movieEntity.releaseDate != null &&
                         showAddToWatchListButton)
@@ -118,6 +110,38 @@ class MovieWidget extends StatelessWidget {
             );
           },
         ),
+      ),
+    );
+  }
+}
+
+class PlaceHolderImage extends StatelessWidget {
+  const PlaceHolderImage({
+    super.key,
+    required this.maxWidth,
+    required this.maxHeight,
+  });
+
+  final double maxWidth;
+  final double maxHeight;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: maxWidth,
+      height: maxHeight * 0.5,
+      alignment: Alignment.center,
+      decoration: const BoxDecoration(
+        color: AppColors.movieCardColor,
+        borderRadius: BorderRadius.horizontal(
+          left: Radius.circular(10),
+          right: Radius.circular(10),
+        ),
+      ),
+      child: const Icon(
+        Icons.theaters_rounded,
+        size: 48.0,
+        color: Colors.grey,
       ),
     );
   }

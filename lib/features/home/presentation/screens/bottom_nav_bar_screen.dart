@@ -5,7 +5,6 @@ import 'package:movies_app/config/routes/app_routes.dart';
 import 'package:movies_app/core/utils/app_colors.dart';
 import 'package:movies_app/features/home/presentation/screens/home_screen.dart';
 import 'package:movies_app/features/profile/presentation/screens/profile_screen.dart';
-import 'package:movies_app/features/search/presentation/cubit/search_cubit.dart';
 import 'package:movies_app/features/search/presentation/screens/search_screen_with_categories.dart';
 import 'package:movies_app/features/videos/presentation/screens/videos_screen.dart';
 import 'package:persistent_bottom_nav_bar_v2/persistent-tab-view.dart';
@@ -21,7 +20,7 @@ class BottomNavBarScreen extends StatefulWidget {
 }
 
 class _BottomNavBarScreenState extends State<BottomNavBarScreen> {
-  List<Widget> buildScreens() => [
+  List<Widget> _buildScreens() => [
         BlocProvider(
           create: (context) => di.sl<HomeCubit>()..getHomeScreenMovies(),
           child: const HomeScreen(),
@@ -84,37 +83,26 @@ class _BottomNavBarScreenState extends State<BottomNavBarScreen> {
     return PersistentTabView(
       context,
       controller: _bottomNavBarController,
-      screens: buildScreens(),
+      screens: _buildScreens(),
       items: _navBarsItems(),
       confineInSafeArea: true,
-      backgroundColor: AppColors.navBarColor, // Default is Colors.white.
-      handleAndroidBackButtonPress: true, // Default is true.
-      resizeToAvoidBottomInset:
-          true, // This needs to be true if you want to move up the screen when keyboard appears. Default is true.
-      stateManagement: true, // Default is true.
-      hideNavigationBarWhenKeyboardShows:
-          true, // Recommended to set 'resizeToAvoidBottomInset' as true while using this argument. Default is true.
-      // decoration: NavBarDecoration(
-      //   borderRadius: BorderRadius.circular(10.0),
-      //   colorBehindNavBar: Colors.white,
-      // ),
+      backgroundColor: AppColors.navBarColor,
+      handleAndroidBackButtonPress: true,
+      resizeToAvoidBottomInset: true,
+      stateManagement: true,
+      hideNavigationBarWhenKeyboardShows: true,
       popAllScreensOnTapOfSelectedTab: true,
       popActionScreens: PopActionScreensType.all,
       itemAnimationProperties: const ItemAnimationProperties(
-        // Navigation Bar's items animation properties.
         duration: Duration(milliseconds: 200),
         curve: Curves.ease,
       ),
       screenTransitionAnimation: const ScreenTransitionAnimation(
-        // Screen transition animation on change of selected tab.
         animateTabTransition: true,
         curve: Curves.ease,
         duration: Duration(milliseconds: 200),
       ),
-      navBarStyle:
-          NavBarStyle.style6, // Choose the nav bar style with this property.
-      //style6
-      //style8
+      navBarStyle: NavBarStyle.style6,
     );
   }
 }
