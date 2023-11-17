@@ -53,6 +53,11 @@ class _ButtonWithIconState extends State<ButtonWithIcon> {
             padding:
                 const EdgeInsets.symmetric(horizontal: 8.0, vertical: 16.0),
             alignment: Alignment.centerLeft,
+            shape: const RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(
+                Radius.circular(4.0),
+              ),
+            ),
             side: BorderSide(
               width: 1.2,
               color: !_isSelected

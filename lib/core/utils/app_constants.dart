@@ -1,6 +1,7 @@
 class AppConstants {
   //api
-  static const apiKey = '<IMDB_KEY>';
+  static const apiKey = 'de3446f7f8e7be39b914abe7231a3839';
+  //static const apiKey = '<IMDB_KEY>';
   static const contentType = 'Content-Type';
   static const applicationJson = 'application/json';
   static String showMoviesImage(String posterPath) =>

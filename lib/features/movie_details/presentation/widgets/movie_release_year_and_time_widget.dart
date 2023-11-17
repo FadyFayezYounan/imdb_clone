@@ -7,10 +7,10 @@ class MovieReleaseYearAndTimeWidget extends StatelessWidget {
   final String? movieReleaseYear;
   final int? movieTime;
   const MovieReleaseYearAndTimeWidget({
-    Key? key,
+    super.key,
     required this.movieReleaseYear,
     required this.movieTime,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

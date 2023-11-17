@@ -29,6 +29,13 @@ class MovieKeywordsList extends StatelessWidget {
       itemBuilder: (context, index) => Padding(
         padding: const EdgeInsets.only(right: 8.0),
         child: OutlinedButton(
+          style: OutlinedButton.styleFrom(
+            shape: const RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(
+                Radius.circular(4.0),
+              ),
+            ),
+          ),
           onPressed: () => onGenresButtonPressed(index),
           child: Text(
             keywordsList[index].name,

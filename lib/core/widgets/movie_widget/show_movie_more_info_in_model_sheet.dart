@@ -8,6 +8,7 @@ Future<dynamic> showMovieMoreInfoInModelSheet(
     BuildContext context, MovieEntity movieEntity) {
   return showModalBottomSheet(
     context: context,
+    useRootNavigator: true,
     builder: (context) {
       return SingleChildScrollView(
         padding: const EdgeInsets.all(AppPadding.padding),

@@ -60,10 +60,10 @@ class MovieImageGenresAndDescriptionText extends StatelessWidget {
 
 class MovieGenresList extends StatelessWidget {
   const MovieGenresList({
-    Key? key,
+    super.key,
     required this.genresList,
     required this.onGenresButtonPressed,
-  }) : super(key: key);
+  });
   final List<GenreEntity> genresList;
   final Function(int index) onGenresButtonPressed;
   @override
@@ -78,6 +78,13 @@ class MovieGenresList extends StatelessWidget {
             right: 8.0,
           ),
           child: OutlinedButton(
+            style: OutlinedButton.styleFrom(
+              shape: const RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(
+                  Radius.circular(4.0),
+                ),
+              ),
+            ),
             onPressed: () => onGenresButtonPressed(index),
             child: Text(
               genresList[index].name,
